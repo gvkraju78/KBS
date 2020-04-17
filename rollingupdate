@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: mydeployment
+  template:
+    metadata:
+      name: mydeployment
+      labels:
+        app: mydeployment
+    spec:
+      containers:
+      - image: gvkraju1116/deployment:v1
+        name: app
