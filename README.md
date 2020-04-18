@@ -25,6 +25,7 @@ create deploy using recreate.yaml
 kubectl apply -f recreate.yaml
 
 create svc as a nodeport
+
 kubectl expose deploy recreate --target-port 80 --port 80 --type=NodePort
 
 mmodify version id in yaml file by using 
@@ -35,5 +36,7 @@ while true;do curl http://worker1:32100;sleep 2;done
 
 
 Rollout:
+
 kubectl rollout undo deployments mydeployment
+
 kubectl rollout undo deployment mydeployment --to-revision=1
